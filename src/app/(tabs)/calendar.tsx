@@ -10,7 +10,7 @@ import Svg, { ClipPath, Defs, Image as SvgImage, LinearGradient, Path, Rect, Sto
 import { openBooking } from '@/components/cards';
 import { CalendarBoard, DayDetail } from '@/components/calendar-board';
 import { currentYM, type YM } from '@/components/calendar';
-import { BrandGradient, Lotus, Mandala } from '@/components/decor';
+import { BrandGradient, Lotus } from '@/components/decor';
 import { ConfirmDialog, useToast } from '@/components/overlays';
 import { Touchable } from '@/components/primitives';
 import { fmtFull, initials, parseISO, todayISO } from '@/lib/format';
@@ -42,14 +42,6 @@ export default function CalendarScreen() {
     <View style={st.screen}>
       {focused ? <StatusBar style="light" /> : null}
       <ScrollView contentContainerStyle={st.content} showsVerticalScrollIndicator={false}>
-        {/* Faint gold florals peeking in from the page edges. */}
-        <View style={[st.floral, { top: 250, left: -70 }]} pointerEvents="none">
-          <Mandala size={150} color={C.accent} opacity={0.18} />
-        </View>
-        <View style={[st.floral, { top: 1010, right: -70 }]} pointerEvents="none">
-          <Mandala size={150} color={C.accent} opacity={0.18} />
-        </View>
-
         <BrandHeader topInset={insets.top} />
 
         <View style={st.card}>
@@ -230,7 +222,6 @@ function DayActions({ iso }: { iso: string }) {
 const st = StyleSheet.create({
   screen: { flex: 1, backgroundColor: C.bg },
   content: { paddingHorizontal: 14, paddingBottom: 24 },
-  floral: { position: 'absolute' },
 
   header: {
     flexDirection: 'row',
